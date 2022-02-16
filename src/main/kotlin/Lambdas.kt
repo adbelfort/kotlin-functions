@@ -5,7 +5,7 @@ typealias Operation = (Int, Int) -> Int
 
 val divide: Operation = { a, b -> a / b }
 
-fun operation(a: Int, b: Int, op: Operation) = op(a, b)
+fun compute(a: Int, b: Int, op: Operation) = op(a, b)
 
 fun main() {
     val x = 9
@@ -15,7 +15,9 @@ fun main() {
     println("Multiply: ${multiply(x, y)}")  // 27
     println("Divide: ${divide(x, y)}")      // 3
 
-    val result = operation(a = x, b = y) { a, b -> a * a + b * b }
+    val result = compute(x, y) { a, b ->
+        a * a + b * b
+    }
 
     println("Sum of squares: $result")      // 90
 }
